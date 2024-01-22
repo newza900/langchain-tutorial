@@ -1,0 +1,115 @@
+$ python serve.py
+INFO:     Started server process [16432]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:8000 (Press CTRL+C to quit)
+
+ __          ___      .__   __.   _______      _______. _______ .______     ____    ____  _______
+|  |        /   \     |  \ |  |  /  _____|    /       ||   ____||   _  \    \   \  /   / |   ____|
+|  |       /  ^  \    |   \|  | |  |  __     |   (----`|  |__   |  |_)  |    \   \/   /  |  |__
+|  |      /  /_\  \   |  . `  | |  | |_ |     \   \    |   __|  |      /      \      /   |   __|
+|  `----./  _____  \  |  |\   | |  |__| | .----)   |   |  |____ |  |\  \----.  \    /    |  |____
+|_______/__/     \__\ |__| \__|  \______| |_______/    |_______|| _| `._____|   \__/     |_______|
+
+LANGSERVE: Playground for chain "/agent/" is live at:
+LANGSERVE:  â”‚
+LANGSERVE:  â””â”€â”€> /agent/playground/
+LANGSERVE:
+LANGSERVE: See all available routes at /docs/
+
+LANGSERVE: âš ď¸Ź Using pydantic 2.5.3. OpenAPI docs for invoke, batch, stream, stream_log endpoints will not be generated. API endpoints and playground should work as expected. If you need to see the docs, you can downgrade to pydantic 1. For example, `pip install pydantic==1.10.13`. See https://github.com/tiangolo/fastapi/issues/10360 for details.
+
+
+
+> Entering new AgentExecutor chain...
+content='You are a helpful assistant'
+content='LangSmithăŻLLMă‚˘ă—ăŞă‚±ăĽă‚·ă§ăłă®ă†ă‚ąăă‚’ć”ŻćŹ´ă—ă¦ăŹă‚Śăľă™ă‹ďĽź' type='human'
+INFO:     ::1:51580 - "POST /agent/invoke HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\routing.py", line 762, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\routing.py", line 782, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\fastapi\routing.py", line 299, in app
+    raise e
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\fastapi\routing.py", line 294, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langserve\server.py", line 446, in invoke
+    return await api_handler.invoke(request)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langserve\api_handler.py", line 684, in invoke
+    output = await self._runnable.ainvoke(input_, config=config)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 3608, in ainvoke
+    return await self.bound.ainvoke(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\chains\base.py", line 209, in ainvoke
+    raise e
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\chains\base.py", line 203, in ainvoke
+    await self._acall(inputs, run_manager=run_manager)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\agents\agent.py", line 1425, in _acall
+    next_step_output = await self._atake_next_step(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\agents\agent.py", line 1228, in _atake_next_step
+    [
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\agents\agent.py", line 1228, in <listcomp>
+    [
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\agents\agent.py", line 1256, in _aiter_next_step
+    output = await self.agent.aplan(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain\agents\agent.py", line 427, in aplan
+    async for chunk in self.runnable.astream(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 2170, in astream
+    async for chunk in self.atransform(input_aiter(), config, **kwargs):
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 2153, in atransform
+    async for chunk in self._atransform_stream_with_config(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 1325, in _atransform_stream_with_config
+    chunk = cast(Output, await py_anext(iterator))
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 2123, in _atransform
+    async for output in final_pipeline:
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 796, in atransform
+    async for chunk in input:
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 3701, in atransform
+    async for item in self.bound.atransform(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\runnables\base.py", line 806, in atransform
+    async for output in self.astream(final, config, **kwargs):
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\language_models\chat_models.py", line 307, in astream
+    raise e
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_core\language_models\chat_models.py", line 291, in astream
+    async for chunk in self._astream(
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_openai\chat_models\base.py", line 481, in _astream
+    message_dicts, params = self._create_message_dicts(messages, stop)
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_openai\chat_models\base.py", line 449, in _create_message_dicts
+    message_dicts = [_convert_message_to_dict(m) for m in messages]
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_openai\chat_models\base.py", line 449, in <listcomp>
+    message_dicts = [_convert_message_to_dict(m) for m in messages]
+  File "C:\Users\masato.arasaki\source\repos\langchain-tutorial\workspace\lib\site-packages\langchain_openai\chat_models\base.py", line 145, in _convert_message_to_dict
+    raise TypeError(f"Got unknown type {message}")
+TypeError: Got unknown type content='LangSmithăŻLLMă‚˘ă—ăŞă‚±ăĽă‚·ă§ăłă®ă†ă‚ąăă‚’ć”ŻćŹ´ă—ă¦ăŹă‚Śăľă™ă‹ďĽź' type='human'
+
